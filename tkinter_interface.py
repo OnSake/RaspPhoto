@@ -1,6 +1,6 @@
 import tkinter as t
 from PIL import Image, ImageTk, ImageGrab
-from pi_module import led_photo_shot
+from pi_module import *
 
 
 fenetre = t.Tk()
@@ -30,7 +30,7 @@ led_photo_shot).pack(pady=50)
 
 home_frame.pack(fill='both', expand=True)
 
-# --------------- Home Page --------------- #
+# --------------- Photo Page --------------- #
 
 
 

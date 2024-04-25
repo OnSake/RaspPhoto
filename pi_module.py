@@ -1,13 +1,21 @@
 
 import time
 from grovepi import *
-from picamera import PiCamera
+from picamera import PiCamera2, Preview
+
+
+
+# --------------- Sensors --------------- #
+
+picam = PiCamera2()
+config = picam.create_preview_configuration()
+picam.configure(config)
 
 
 led_yellow_1 = 5
 led_yellow_2 = 6
 led_green = 7
-button = 4
+button = 3
 
 
 pinMode(led_yellow_1, "OUTPUT")
@@ -15,6 +23,11 @@ pinMode(led_yellow_2, "OUTPUT")
 pinMode(led_green, "OUTPUT")
 pinMode(button, "INPUT")
 
+# --------------- Variables --------------- #
+preview_status = False
+
+
+# --------------- Fonctions --------------- #
 def led_photo_shot():
     digitalWrite(led_yellow_1, 1)
     print("LED 1 ON")
@@ -33,9 +46,17 @@ def led_photo_shot():
     digitalWrite(led_yellow_2, 0)
     digitalWrite(led_green, 0)
 
-active = True
-while active == True:
-    button_status = digitalRead(button)
-    if button_status == 0:
-        active = False
-        led_photo_shot()
+def start_preview():
+    preview_status = True
+    picam.start()
+    picam.start_preview()
+    
+def take_photo():
+    if preview_status:
+        print("ok")
+    print("none")
+      
+def stop_preview():
+    preview_status = False
+    picam.stop_preview()
+    picam.close()
