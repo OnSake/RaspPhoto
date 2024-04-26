@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RaspPhoto</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/img/icon.ico" />
   </head>
   <body>
     <section id="home" class="home">
@@ -20,12 +21,13 @@
       <section class="photo" id="photo">
         <div class="image_preview">
           <button class="takephoto_button poppins-medium">Lancer la caméra</button>
-          <img class="photo_image" src="assets/img/icon.png" alt="">
+          <img class="photo_image" id="photo-image" src="assets/img/icon.png" alt="">
         </div>
         <div class="buttons">
           <a href="#" class="gallery_button poppins-medium">Galerie</a>
-          <a href="#" class="print_button poppins-medium">Imprimer</a>
+          <button class="print_button poppins-medium" onclick="printImage()">Imprimer</a>
         </div>
       </section>
   </body>
+  <script src="assets/js/script.js"></script>
 </html>
