@@ -20,12 +20,12 @@
       
       <section class="photo" id="photo">
         <div class="image_preview">
-          <button class="takephoto_button poppins-medium">Lancer la caméra</button>
-          <img class="photo_image" id="photo-image" src="assets/img/icon.png" alt="">
+          <button class="takephoto_button poppins-medium" id="image-launch-button" onclick=launchImage()>Lancer la caméra</button>
+          <img class="photo_image cache" id="photo-image" src="assets/img/icon.png" alt="">
         </div>
         <div class="buttons">
-          <a href="#" class="gallery_button poppins-medium">Galerie</a>
-          <button class="print_button poppins-medium" onclick="printImage()">Imprimer</a>
+          <button class="gallery_button poppins-medium retake_image" id="retake-image-button" onclick=retakeImage()>Galerie</button>
+          <button class="print_button poppins-medium" onclick="">Imprimer</button>
         </div>
       </section>
   </body>
