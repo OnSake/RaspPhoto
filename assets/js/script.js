@@ -15,3 +15,22 @@ function retakeImage() {
   imageButton.classList.remove("cache");
   retakeButton.classList.add("retake_image");
 }
+
+function runPython(url) {
+  fetch("http://localhost:5000"+url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("La requête a échoué");
+      }
+      return response.text(); // Convertir la réponse en texte
+    })
+    .then((data) => {
+      // Utiliser les données récupérées
+      console.log(data); // Afficher les données dans la console
+      // Vous pouvez assigner les données à une variable si nécessaire
+      let variableContenantLesDonnees = data;
+    })
+    .catch((error) => {
+      console.error("Erreur:", error);
+    });
+}

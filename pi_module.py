@@ -1,9 +1,20 @@
-from flash import Flask
+from flask import Flask
+from flask_cors import CORS
 import time
 from grovepi import *
 from picamera import PiCamera2, Preview
 
 
+# --------------- Flask APP --------------- #
+app = Flask(__name__)
+CORS(app)
+
+@app.route('/test')
+def test():
+    return 'ok'
+
+if __name__ == '__main__':
+    app.run(port=5500, debug=True)
 
 # --------------- Sensors --------------- #
 
@@ -15,13 +26,13 @@ picam.configure(config)
 led_yellow_1 = 5
 led_yellow_2 = 6
 led_green = 7
-button = 3
+#button = 3
 
 
 pinMode(led_yellow_1, "OUTPUT")
 pinMode(led_yellow_2, "OUTPUT")
 pinMode(led_green, "OUTPUT")
-pinMode(button, "INPUT")
+#pinMode(button, "INPUT")
 
 # --------------- Variables --------------- #
 preview_status = False
