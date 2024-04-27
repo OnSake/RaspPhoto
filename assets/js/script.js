@@ -1,6 +1,7 @@
 const photoImage = document.getElementById("photo-image"),
   imageButton = document.getElementById("image-launch-button");
 retakeButton = document.getElementById("retake-image-button");
+testInput = document.getElementById("test");
 
 function launchImage() {
   console.log("launchImage lancé");
@@ -17,7 +18,7 @@ function retakeImage() {
 }
 
 function runPython(url) {
-  fetch("http://localhost:5000"+url)
+  fetch("http://localhost:5000" + url)
     .then((response) => {
       if (!response.ok) {
         throw new Error("La requête a échoué");
@@ -29,6 +30,7 @@ function runPython(url) {
       console.log(data); // Afficher les données dans la console
       // Vous pouvez assigner les données à une variable si nécessaire
       let variableContenantLesDonnees = data;
+      testInput.textContent = data;
     })
     .catch((error) => {
       console.error("Erreur:", error);

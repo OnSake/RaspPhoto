@@ -11,7 +11,7 @@ CORS(app)
 
 @app.route('/test')
 def test():
-    return 'ok'
+    return 'wsh wsh canne a peche'
 
 if __name__ == '__main__':
     app.run(port=5500, debug=True)
