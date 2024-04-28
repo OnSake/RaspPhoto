@@ -1,20 +1,30 @@
 const photoImage = document.getElementById("photo-image"),
-  imageButton = document.getElementById("image-launch-button");
-retakeButton = document.getElementById("retake-image-button");
-testInput = document.getElementById("test");
+      previewButton = document.getElementById("image-launch-button");
+      retakeButton = document.getElementById("retake-image-button");
+      takePhotoButton = document.getElementById("take-image");
+      donwloadButton = document.getElementById("download-button");
+      testInput = document.getElementById("test");
 
-function launchImage() {
-  console.log("launchImage lancé");
+function launchPreview() {
+  console.log("launchPreview lancé");
   photoImage.classList.remove("cache");
-  imageButton.classList.add("cache");
-  retakeButton.classList.remove("retake_image");
+  previewButton.classList.add("cache");
+  takePhotoButton.classList.remove("off");
 }
 
 function retakeImage() {
   console.log("retakeImage lancé");
   photoImage.classList.add("cache");
-  imageButton.classList.remove("cache");
-  retakeButton.classList.add("retake_image");
+  previewButton.classList.remove("cache")
+  retakeButton.classList.add("cache");
+  donwloadButton.classList.add("off")
+}
+
+function takeImage(){
+  console.log("takeImage lancé")
+  retakeButton.classList.remove("cache")
+  donwloadButton.classList.remove("off")
+  takePhotoButton.classList.add("off")
 }
 
 function runPython(url) {

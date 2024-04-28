@@ -202,7 +202,6 @@ body {
 
 #photo {
   width: 100%;
-  height: 100%;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
@@ -214,15 +213,15 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-  width: 800px;
-  height: 500px;
+  width: 1000px;
+  height: 800px;
   background-color: white;
   overflow-y: hidden;
   border: 7px solid white;
   border-radius: 20px;
 }
 
-.takephoto_button {
+.launch_preview_button {
   font-size: 16pt;
   background-color: var(--pink-color);
   text-transform: uppercase;
@@ -236,18 +235,21 @@ body {
 }
 
 .photo_image {
-  width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .buttons {
   padding: 30px 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 70px;
 }
 
-.gallery_button {
+.take_photo_button {
   background-color: var(--pink-color);
   text-transform: uppercase;
   text-decoration: none;
@@ -260,7 +262,7 @@ body {
   font-size: 16px;
 }
 
-.print_button {
+.download_button {
   background-color: var(--pink-color);
   text-transform: uppercase;
   text-decoration: none;
@@ -273,9 +275,23 @@ body {
   font-size: 16px;
 }
 
-.takephoto_button:hover,
-.gallery_button:hover,
-.print_button:hover {
+.reprendre_photo{
+  background-color: var(--pink-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  border: 3px solid var(--dark-pink-color);
+  border-radius: 20px;
+  padding: 20px 50px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.launch_preview_button:hover,
+.take_photo_button:hover,
+.download_button:hover,
+.reprendre_photo:hover {
   box-shadow: 0 5px 0px var(--dark-pink-color);
 }
 
@@ -283,12 +299,63 @@ body {
   display: none;
 }
 
-.retake_image {
+.off {
   background-color: #858585;
   border: 3px solid #505050;
   cursor: not-allowed;
 }
 
+.off:hover{
+  box-shadow: none;
+}
+
 .retake_image:hover {
   box-shadow: 0 0px 0px var(--dark-pink-color);
+}
+
+
+@media screen and (max-width:1050px) {
+  .image_preview{
+    width: 800px;
+    height: 700px;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .image_preview{
+    width: 600px;
+  }
+
+  .launch_preview_button,
+  .take_photo_button,
+  .download_button,
+  .reprendre_photo{
+    padding: 15px 30px;
+    font-size: 15px;
+  }
+
+  .buttons{
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .image_preview{
+    width: 400px;
+    height: 300px;
+  }
+
+  .launch_preview_button,
+  .take_photo_button,
+  .download_button,
+  .reprendre_photo{
+    padding: 10px 5px;
+    font-size: 10px;
+  }
+
+  .buttons{
+    gap: 30px;
+    padding: 20px;
+  }
+
 }

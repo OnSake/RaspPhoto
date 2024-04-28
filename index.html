@@ -20,12 +20,13 @@
       
       <section class="photo" id="photo">
         <div class="image_preview">
-          <button class="takephoto_button poppins-medium" id="image-launch-button" onclick=launchImage()>Lancer la caméra</button>
+          <button class="launch_preview_button poppins-medium" id="image-launch-button" onclick=launchPreview() onclick=runPython("/leds")>Lancer la caméra</button>
           <img class="photo_image cache" id="photo-image" src="assets/img/icon.png" alt="">
         </div>
         <div class="buttons">
-          <button class="gallery_button poppins-medium retake_image" id="retake-image-button" onclick=retakeImage()>Galerie</button>
-          <button class="print_button poppins-medium" onclick=runPython("/test")>Imprimer</button>
+          <button class="take_photo_button poppins-medium off" id="take-image" onclick=takeImage()>Prendre la photo</button>
+          <button class="download_button poppins-medium off" id="download-button">Télécharger</button>
+          <button class="reprendre_photo poppins-medium cache" id="retake-image-button" onclick=retakeImage()>Reprendre une photo</button>
         </div>
         <p id="test"></p>
       </section>
