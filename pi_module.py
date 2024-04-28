@@ -13,16 +13,8 @@ CORS(app)
 def test():
     return 'wsh wsh canne a peche'
 
-if __name__ == '__main__':
-    app.run(host='192.168.1.127', port=5000, debug=True)
 
 # --------------- Sensors --------------- #
-
-picam = PiCamera()
-config = picam.create_preview_configuration()
-picam.configure(config)
-
-
 led_yellow_1 = 5
 led_yellow_2 = 6
 led_green = 7
@@ -39,6 +31,7 @@ preview_status = False
 
 
 # --------------- Fonctions --------------- #
+@app.route('/leds')
 def led_photo_shot():
     digitalWrite(led_yellow_1, 1)
     print("LED 1 ON")
@@ -56,6 +49,16 @@ def led_photo_shot():
     digitalWrite(led_yellow_1, 0)
     digitalWrite(led_yellow_2, 0)
     digitalWrite(led_green, 0)
+    return "leds lancées"
+
+if __name__ == '__main__':
+    app.run(host='192.168.1.127', port=5000, debug=True)
+
+
+picam = PiCamera()
+config = picam.create_preview_configuration()
+picam.configure(config)
+
 
 def start_preview():
     preview_status = True
