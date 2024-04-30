@@ -74,7 +74,7 @@ function downloadImage(){
   link.download = 'photo.jpg'
   document.body.appendChild(link)
   link.click()
-  document.body.removeChlid(link)
+  document.body.removeChild(link)
 }
 
 //172.20.80.138
