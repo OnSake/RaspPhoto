@@ -10,6 +10,7 @@ function launchPreview() {
   photoImage.classList.remove("cache");
   previewButton.classList.add("cache");
   takePhotoButton.classList.remove("off");
+  photoImage.src = 'assets/img/icon.png'
 }
 
 function retakeImage() {
@@ -17,24 +18,30 @@ function retakeImage() {
   photoImage.classList.add("cache");
   previewButton.classList.remove("cache")
   retakeButton.classList.add("cache");
-  donwloadButton.classList.add("off")
+  downloadButton.classList.add("off")
 }
 
 function takeImage(){
   console.log("takeImage lancé")
   retakeButton.classList.remove("cache")
-  donwloadButton.classList.remove("off")
   takePhotoButton.classList.add("off")
+  runPython('/leds')
   runPython('/shot')
     .then((photoName) => {
       var photo_nom = 'assets/photos/' + photoName + '.jpg'
       photoImage.src = photo_nom
+      downloadButton.classList.remove("off")
     })
 }
 
 function downloadImage(){
   console.log("DownloadImage Lancé")
-  window.location(photo_nom)
+  const link = document.createElement('a')
+  link.href = photoImage.src
+  link.download = 'photo.jpg'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChlid(link)
 }
 
 //172.20.80.138

@@ -19,9 +19,9 @@ def test():
 
 
 # --------------- Sensors --------------- #
-led_yellow_1 = 5
-led_yellow_2 = 6
-led_green = 7
+led_yellow_1 = 2
+led_yellow_2 = 3
+led_green = 4
 
 
 pinMode(led_yellow_1, "OUTPUT")
@@ -53,7 +53,6 @@ def led_photo_shot():
     digitalWrite(led_yellow_2, 0)
     digitalWrite(led_green, 0)
     return "leds lancées"
-
 
 def take_shot():
     date_today = datetime.now()
