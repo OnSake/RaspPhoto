@@ -149,4 +149,4 @@ if __name__ == '__main__':
 # # reinitialisation GPIO lors d'une sortie normale
 
 
-e
+

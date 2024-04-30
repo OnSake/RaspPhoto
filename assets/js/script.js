@@ -25,11 +25,16 @@ function takeImage(){
   retakeButton.classList.remove("cache")
   donwloadButton.classList.remove("off")
   takePhotoButton.classList.add("off")
+  runPython('/shot')
+    .then((photoName) => {
+      photoImage.src = 'assets/photos/' + photoName + '.jpg'
+    })
 }
 
 //172.20.80.138
 function runPython(url) {
-  fetch('http://192.168.1.127:5000' + url) 
+  return new Promise((resolve, reject) => {
+    fetch('http://192.168.1.127:5000' + url) 
     .then((response) => {
       if (!response.ok) {
         throw new Error("La requête a échoué");
@@ -40,10 +45,12 @@ function runPython(url) {
       // Utiliser les données récupérées
       console.log(data); // Afficher les données dans la console
       // Vous pouvez assigner les données à une variable si nécessaire
-      let variableContenantLesDonnees = data;
-      testInput.textContent = data;
+      resolve(data);
     })
     .catch((error) => {
       console.error("Erreur:", error);
+      reject(error)
     });
+  })
+
 }
