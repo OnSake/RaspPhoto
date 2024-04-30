@@ -360,6 +360,8 @@ body {
     width: 800px;
     height: 700px;
   }
+
+
 }
 
 @media screen and (max-width:900px) {
@@ -378,12 +380,16 @@ body {
   .buttons{
     gap: 50px;
   }
+
+  .compte_a_rebours{
+    margin-top: 175px;
+  }
 }
 
 @media screen and (max-width: 710px) {
   .image_preview{
-    width: 400px;
-    height: 300px;
+    width: 350px;
+    height: 280px;
   }
 
   .launch_preview_button,
@@ -397,6 +403,18 @@ body {
   .buttons{
     gap: 30px;
     padding: 20px;
+  }
+
+  .launch_preview_text{
+    font-size: 10pt;
+  }
+
+  .compte_a_rebours{
+    margin-top: 100px;
+  }
+
+  .compte_a_rebours p{
+    font-size: 20pt;
   }
 
 }
