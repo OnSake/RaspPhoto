@@ -27,8 +27,14 @@ function takeImage(){
   takePhotoButton.classList.add("off")
   runPython('/shot')
     .then((photoName) => {
-      photoImage.src = 'assets/photos/' + photoName + '.jpg'
+      var photo_nom = 'assets/photos/' + photoName + '.jpg'
+      photoImage.src = photo_nom
     })
+}
+
+function downloadImage(){
+  console.log("DownloadImage Lancé")
+  window.location(photo_nom)
 }
 
 //172.20.80.138
