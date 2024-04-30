@@ -208,6 +208,8 @@ body {
   align-items: center;
 }
 
+
+
 .image_preview {
   display: flex;
   justify-content: center;
@@ -232,6 +234,45 @@ body {
   padding: 20px 50px;
   transition: 0.3s;
   cursor: pointer;
+}
+
+.compte_rebours_text{
+  margin-top: 50px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  background: transparent;
+}
+
+.launch_preview_text{
+  background: transparent;
+  font-size: 20pt;
+  display: flex;
+  text-align: center;
+  transition: .3s all;
+}
+
+.compte_a_rebours{
+  background: transparent;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 250px;
+}
+
+.compte_a_rebours p{
+  font-size: 60pt;
+  background: transparent;
+  transition: .3s all;
+  scale: 0;
+}
+
+.compte_a_rebours .compte_go{
+  scale: 1;
 }
 
 .photo_image {
