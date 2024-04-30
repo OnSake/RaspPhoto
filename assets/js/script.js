@@ -3,7 +3,6 @@ const photoImage = document.getElementById("photo-image"),
       retakeButton = document.getElementById("retake-image-button");
       takePhotoButton = document.getElementById("take-image");
       downloadButton = document.getElementById("download-button");
-      testInput = document.getElementById("test");
       launchPreviewText = document.getElementById("launch-preview-text");
       go1 = document.getElementById('1');
       go2 = document.getElementById('2');
