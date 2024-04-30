@@ -1,13 +1,17 @@
 from flask import Flask
 from flask_cors import CORS
 import time
+from datetime import datetime
 from grovepi import *
 from picamera import PiCamera
 
 
+
 # --------------- Flask APP --------------- #
+
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app, resources={r"*":{"origins": "*"}})
+
 
 @app.route('/test')
 def test():
@@ -18,17 +22,16 @@ def test():
 led_yellow_1 = 5
 led_yellow_2 = 6
 led_green = 7
-#button = 3
 
 
 pinMode(led_yellow_1, "OUTPUT")
 pinMode(led_yellow_2, "OUTPUT")
 pinMode(led_green, "OUTPUT")
-#pinMode(button, "INPUT")
 
 # --------------- Variables --------------- #
 preview_status = False
-
+global nom_photo
+nom_photo = 0
 
 # --------------- Fonctions --------------- #
 @app.route('/leds')
@@ -51,30 +54,27 @@ def led_photo_shot():
     digitalWrite(led_green, 0)
     return "leds lancées"
 
-if __name__ == '__main__':
-    app.run(host='192.168.1.127', port=5000, debug=True)
 
-
-picam = PiCamera()
-config = picam.create_preview_configuration()
-picam.configure(config)
-
-
-def start_preview():
-    preview_status = True
-    picam.start()
+def take_shot():
+    date_today = datetime.now()
+    nom_image = date_today.strftime('%d-%m-%Y_%Hh-%Mm-%Ss')
+    picam = PiCamera()
     picam.start_preview()
-    
-def take_photo():
-    if preview_status:
-        print("ok")
-    print("none")
-      
-def stop_preview():
-    preview_status = False
+    picam.capture('/var/www/html/RaspPhoto/assets/photos/'+nom_image+'.jpg')
     picam.stop_preview()
     picam.close()
+    return nom_image
 
+
+@app.route('/shot')
+
+def shot():
+    return take_shot()
+
+
+if __name__ == '__main__':
+    app.run(host='192.168.1.127', port=5000, debug=True)
+#172.20.80.138
 
   #THIBAULT  
 # import time

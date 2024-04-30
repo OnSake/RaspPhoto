@@ -27,8 +27,9 @@ function takeImage(){
   takePhotoButton.classList.add("off")
 }
 
+//172.20.80.138
 function runPython(url) {
-  fetch('http://192.168.1.127:5000' + url)
+  fetch('http://192.168.1.127:5000' + url) 
     .then((response) => {
       if (!response.ok) {
         throw new Error("La requête a échoué");
