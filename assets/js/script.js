@@ -8,7 +8,7 @@ const photoImage = document.getElementById("photo-image"),
       retakeButton = document.getElementById("retake-image-button"),
       takePhotoButton = document.getElementById("take-image"),
       downloadButton = document.getElementById("download-button"),
-      launchPreviewText = document.getElementById("launch-preview-text"),
+      launchPreviewText = document.getElementById("launch-preview-text");
       
 //Affichage de l'écran pour la 
 function launchPreview() {
