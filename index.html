@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RaspPhoto</title>
+     <! -- CSS FILE -->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="icon" href="assets/img/icon.ico" />
+     <! -- ICON -->
+    <link rel="icon" href="assets/img/icon.ico" />  
   </head>
+  
   <body>
+     <! -- HOME SECTION -->
     <section id="home" class="home">
-
       <div class="presentation">
         <h2 class="poppins-regular home_subtitle">Bienvenue sur votre</h1>
           <img class="home_img" src="assets/img/icon.png" alt="icon">
@@ -17,20 +20,24 @@
         </div>
         <a href="#photo" class="home_button poppins-medium">Prendre en photo</a>
       </section>
-      
+       <! -- PHOTO SECTION -->
       <section class="photo" id="photo">
         <div class="image_preview">
           <button class="launch_preview_button poppins-medium" id="image-launch-button" onclick=launchPreview() onclick=runPython("/leds")>Lancer la caméra</button>
+  
           <div class="compte_rebours_text cache" id="compte-rebours-text">
             <p class="launch_preview_text poppins-medium cache" id="launch-preview-text">Tenez vous droit devant la caméra et souriez 😁 !</p>
+            
             <div class="compte_a_rebours">
               <p id="1" class="poppins-medium">1</p>
               <p id="2" class="poppins-medium">2</p>
               <p id="3" class="poppins-medium">3</p>
             </div>
           </div>
+          
           <img class="photo_image cache" id="photo-image" src="assets/photos/29-04-2024_17h-31m-32s.jpg" alt="">
         </div>
+        
         <div class="buttons">
           <button class="take_photo_button poppins-medium off" id="take-image" onclick=takeImage() >Prendre la photo</button>
           <button class="download_button poppins-medium off" id="download-button" onclick=downloadImage()>Télécharger</button>
