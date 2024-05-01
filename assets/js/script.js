@@ -1,14 +1,16 @@
+//Elements HTML
 const photoImage = document.getElementById("photo-image"),
-      previewButton = document.getElementById("image-launch-button");
-      retakeButton = document.getElementById("retake-image-button");
-      takePhotoButton = document.getElementById("take-image");
-      downloadButton = document.getElementById("download-button");
-      launchPreviewText = document.getElementById("launch-preview-text");
-      go1 = document.getElementById('1');
-      go2 = document.getElementById('2');
-      go3 = document.getElementById('3');
-      compteReboursText = document.getElementById('compte-rebours-text');
-
+      previewButton = document.getElementById("image-launch-button"),
+      compteReboursText = document.getElementById('compte-rebours-text'),      
+      go1 = document.getElementById('1'),
+      go2 = document.getElementById('2'),
+      go3 = document.getElementById('3'),
+      retakeButton = document.getElementById("retake-image-button"),
+      takePhotoButton = document.getElementById("take-image"),
+      downloadButton = document.getElementById("download-button"),
+      launchPreviewText = document.getElementById("launch-preview-text"),
+      
+//Affichage de l'écran pour la 
 function launchPreview() {
   console.log("launchPreview lancé");
   previewButton.classList.add("cache");
@@ -17,6 +19,7 @@ function launchPreview() {
   compteReboursText.classList.remove("cache")
   photoImage.src = 'assets/img/icon.png'
 }
+
 
 function retakeImage() {
   console.log("retakeImage lancé");
@@ -46,7 +49,7 @@ function ledsAndPhoto(){
     go3.classList.add("compte_go");
   }, 3000);
 
-  // Appel à runPython('/shot') après que toutes les animations et les délais soient terminés (à 4500ms)
+  // Appel à runPython('/shot') après que toutes les animations et les délais soient terminés
   setTimeout(() =>{
     runPython('/shot')
       .then((photoName) => {
@@ -62,10 +65,10 @@ function ledsAndPhoto(){
       go1.classList.remove("compte_go")
       go2.classList.remove("compte_go")
       go3.classList.remove("compte_go")
-    }, 500); // ajustez ce délai si nécessaire
+    }, 500);
   }, 4500);
 }
-
+//Téléchargement de photo affichée
 function downloadImage(){
   console.log("DownloadImage Lancé")
   const link = document.createElement('a')
@@ -74,6 +77,7 @@ function downloadImage(){
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
+  //On crée un élément html <a> dans lequel on insère l'image, on 
 }
 
 //172.20.80.138
@@ -84,12 +88,10 @@ function runPython(url) {
       if (!response.ok) {
         throw new Error("La requête a échoué");
       }
-      return response.text(); // Convertir la réponse en texte
+      return response.text(); 
     })
     .then((data) => {
-      // Utiliser les données récupérées
-      console.log(data); // Afficher les données dans la console
-      // Vous pouvez assigner les données à une variable si nécessaire
+      console.log(data); 
       resolve(data);
     })
     .catch((error) => {
